@@ -1,4 +1,4 @@
-import { logger } from '@bussin/context-logger';
+import { logger } from '@mytake2/context-logger';
 
 const sleep = async (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 

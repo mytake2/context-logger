@@ -1,7 +1,7 @@
 import { IContextLogger } from 'src/core';
 import { createLogger } from './createLogger';
 
-const globalSymbol = Symbol.for('@bussin/context-logger/console/singleton');
+const globalSymbol = Symbol.for('@mytake2/context-logger/console/singleton');
 
 const g = globalThis as any;
 

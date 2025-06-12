@@ -1,5 +1,5 @@
-import { IContextLogger } from '@bussin/context-logger';
-import { createLogger } from '@bussin/context-logger/winston';
+import { IContextLogger } from '@mytake2/context-logger';
+import { createLogger } from '@mytake2/context-logger/winston';
 
 const run = async () => {
   const logger: IContextLogger = createLogger({ level: 'debug' });
