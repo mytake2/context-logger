@@ -13,10 +13,10 @@
     "noImplicitReturns": true,
     "outDir": "./dist",
     "paths": {
-      "@bussin/context-logger": ["src/index.ts"],
-      "@bussin/context-logger/console": ["src/console/index.ts"],
-      "@bussin/context-logger/core": ["src/core/index.ts"],
-      "@bussin/context-logger/winston": ["src/winston/index.ts"]
+      "@mytake2/context-logger": ["src/index.ts"],
+      "@mytake2/context-logger/console": ["src/console/index.ts"],
+      "@mytake2/context-logger/core": ["src/core/index.ts"],
+      "@mytake2/context-logger/winston": ["src/winston/index.ts"]
     },
     "preserveConstEnums": true,
     "removeComments": true,

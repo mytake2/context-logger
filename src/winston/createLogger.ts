@@ -1,4 +1,4 @@
-import { IContextLogger } from '@bussin/context-logger/core';
+import { IContextLogger } from '@mytake2/context-logger/core';
 import { WinstonContextLogger } from './WinstonContextLogger';
 import { WinstonContextLoggerOptions } from './WinstonContextLoggerOptions';
 
