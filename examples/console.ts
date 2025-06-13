@@ -1,7 +1,7 @@
 // Console implementation example
 // Note: Winston is now the default implementation
-import { createLogger } from '@bussin/context-logger/console';
-import { IContextLogger } from '@bussin/context-logger/core';
+import { createLogger } from '@mytake2/context-logger/console';
+import { IContextLogger } from '@mytake2/context-logger/core';
 
 const run = async () => {
   // Console logger outputs structured JSON logs
