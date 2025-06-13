@@ -1,10 +1,11 @@
-# @bussin/context-logger Examples
+# @mytake2/context-logger Examples
 
-This directory contains comprehensive examples demonstrating how to use the `@bussin/context-logger` package in various scenarios.
+This directory contains comprehensive examples demonstrating how to use the `@mytake2/context-logger` package in various scenarios.
 
 ## Overview
 
 The package provides context-aware logging with support for:
+
 - **Winston** (default implementation) - Rich logging with transport support
 - **Console** implementation - Structured JSON output to console
 - **Dual ESM/CJS** support - Works in both module systems
@@ -14,7 +15,7 @@ The package provides context-aware logging with support for:
 ## Quick Start
 
 ```typescript
-import { logger } from '@bussin/context-logger';
+import { logger } from '@mytake2/context-logger';
 
 await logger.addContext({ userId: 'user-123' }, async () => {
   logger.info('User action started');
@@ -25,28 +26,31 @@ await logger.addContext({ userId: 'user-123' }, async () => {
 ## Examples
 
 ### 🎯 [winston.ts](./winston.ts)
+
 Demonstrates the **default Winston implementation** which is now the primary logger.
 
 ```typescript
 // Winston is now the default - both imports work the same way
-import { createLogger } from '@bussin/context-logger';
-// Or explicitly: import { createLogger } from '@bussin/context-logger/winston';
+import { createLogger } from '@mytake2/context-logger';
+// Or explicitly: import { createLogger } from '@mytake2/context-logger/winston';
 ```
 
 ### 🖥️ [console.ts](./console.ts)
+
 Shows how to use the **Console implementation** for structured JSON logging.
 
 ```typescript
-import { createLogger } from '@bussin/context-logger/console';
+import { createLogger } from '@mytake2/context-logger/console';
 
-const logger = createLogger({ 
+const logger = createLogger({
   level: 'debug',
   includeTimestamp: true,
-  includeContext: true 
+  includeContext: true,
 });
 ```
 
 ### ⚡ [concurrency.ts](./concurrency.ts)
+
 Demonstrates **context isolation** in concurrent operations - perfect for web servers handling multiple requests.
 
 ```typescript
@@ -59,25 +63,31 @@ Promise.all([
 ```
 
 ### 📚 [comprehensive-usage.ts](./comprehensive-usage.ts)
+
 Complete feature walkthrough including:
+
 - Default winston implementation
 - Singleton logger usage
 - Console implementation
-- Custom winston configuration  
+- Custom winston configuration
 - All log levels
 - Context options (`preserveParentContext`)
 - Getting current context
 
 ### 🔧 [typescript-usage.ts](./typescript-usage.ts)
+
 Advanced TypeScript patterns including:
+
 - **Typed context objects** with interfaces
-- **Generic context methods** 
+- **Generic context methods**
 - **Custom logger interfaces**
 - **Factory patterns** for different environments
 - **Error handling** with type safety
 
 ### 📜 [javascript-usage.js](./javascript-usage.js)
+
 Plain JavaScript examples showing:
+
 - **CommonJS** and **ESM** import patterns
 - Usage without TypeScript
 - Practical web service example
@@ -89,19 +99,20 @@ The package exports are organized as follows:
 
 ```typescript
 // Main entry point - Winston implementation (default)
-import { createLogger, logger, IContextLogger } from '@bussin/context-logger';
+import { createLogger, logger, IContextLogger } from '@mytake2/context-logger';
 
 // Specific implementations
-import { createLogger } from '@bussin/context-logger/console';
-import { createLogger } from '@bussin/context-logger/winston';
+import { createLogger } from '@mytake2/context-logger/console';
+import { createLogger } from '@mytake2/context-logger/winston';
 
-// Core types and interfaces  
-import { IContextLogger, ContextOptions } from '@bussin/context-logger/core';
+// Core types and interfaces
+import { IContextLogger, ContextOptions } from '@mytake2/context-logger/core';
 ```
 
 ## Key Features Demonstrated
 
 ### Context Inheritance
+
 ```typescript
 await logger.addContext({ tenant: 'acme' }, async () => {
   await logger.addContext({ service: 'api' }, async () => {
@@ -112,6 +123,7 @@ await logger.addContext({ tenant: 'acme' }, async () => {
 ```
 
 ### Context Options
+
 ```typescript
 // Default: child overrides parent
 await logger.addContext({ key: 'parent' }, async () => {
@@ -122,37 +134,39 @@ await logger.addContext({ key: 'parent' }, async () => {
 
 // Preserve parent: parent takes precedence
 await logger.addContext({ key: 'parent' }, async () => {
-  await logger.addContext(
-    { key: 'child' }, 
-    { preserveParentContext: true },
-    async () => {
-      // key = 'parent' 
-    }
-  );
+  await logger.addContext({ key: 'child' }, { preserveParentContext: true }, async () => {
+    // key = 'parent'
+  });
 });
 ```
 
 ### All Log Levels
+
 Both implementations support Winston's log levels:
+
 - `error`, `warn`, `help`, `data`, `info`, `debug`
 - `prompt`, `http`, `verbose`, `input`, `silly`
 
 ### Type Safety (TypeScript)
+
 ```typescript
 interface UserContext {
   userId: string;
   roles: string[];
 }
 
-await logger.addContext<UserContext>({ 
-  userId: 'user-123',
-  roles: ['admin']
-}, async (ctx) => {
-  // ctx is fully typed as UserContext
-  if (ctx.roles.includes('admin')) {
-    logger.info('Admin user detected');
-  }
-});
+await logger.addContext<UserContext>(
+  {
+    userId: 'user-123',
+    roles: ['admin'],
+  },
+  async ctx => {
+    // ctx is fully typed as UserContext
+    if (ctx.roles.includes('admin')) {
+      logger.info('Admin user detected');
+    }
+  },
+);
 ```
 
 ## Running Examples
@@ -171,23 +185,25 @@ node examples/javascript-usage.js
 The package works seamlessly in both module systems:
 
 **ESM (package.json with "type": "module")**
+
 ```javascript
-import { logger } from '@bussin/context-logger';
+import { logger } from '@mytake2/context-logger';
 ```
 
 **CommonJS (traditional Node.js)**
-```javascript  
-const { logger } = require('@bussin/context-logger');
+
+```javascript
+const { logger } = require('@mytake2/context-logger');
 ```
 
 ## Implementation Comparison
 
-| Feature | Winston (Default) | Console |
-|---------|------------------|---------|
-| Output Format | Configurable (JSON, simple, etc.) | Structured JSON |
-| Transports | Multiple (file, console, etc.) | Console only |
-| Performance | High | Very High |
-| Configuration | Rich options | Simple options |
-| Use Case | Production | Development/Simple apps |
+| Feature       | Winston (Default)                 | Console                 |
+| ------------- | --------------------------------- | ----------------------- |
+| Output Format | Configurable (JSON, simple, etc.) | Structured JSON         |
+| Transports    | Multiple (file, console, etc.)    | Console only            |
+| Performance   | High                              | Very High               |
+| Configuration | Rich options                      | Simple options          |
+| Use Case      | Production                        | Development/Simple apps |
 
 Choose **Winston** (default) for production applications that need rich logging features, or **Console** for development and simple applications that need fast, structured output.

@@ -1,7 +1,7 @@
 // Winston implementation example
 // Winston is now the default implementation - you can use either import style
-import { createLogger, IContextLogger } from '@bussin/context-logger';
-// Or explicitly: import { createLogger } from '@bussin/context-logger/winston';
+import { createLogger, IContextLogger } from '@mytake2/context-logger';
+// Or explicitly: import { createLogger } from '@mytake2/context-logger/winston';
 
 const run = async () => {
   // Winston logger with rich formatting and transport options
