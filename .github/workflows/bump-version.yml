@@ -27,11 +27,11 @@ jobs:
         with:
           version: ${{ github.event.inputs.version }}
 
-      - name: Validate non-prerelease input version targets develop branch only
+      - name: Validate non-prerelease input version targets mytake2 branch only
         run: |
           if [[ -z "${{ steps.validate_semver.outputs.prerelease }}" ]]; then
-            if [[ "${{ github.ref_name }}" != "develop" ]]; then
-              echo "::error ::Non-prerelease versions must be released from 'develop'."
+            if [[ "${{ github.ref_name }}" != "mytake2" ]]; then
+              echo "::error ::Non-prerelease versions must be released from 'mytake2'."
               exit 1
             fi
           fi

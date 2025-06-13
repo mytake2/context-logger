@@ -1,5 +1,5 @@
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { ContextOptions, IContextLogger, LogMethod } from '@bussin/context-logger/core';
+import { ContextOptions, IContextLogger, LogMethod } from '@mytake2/context-logger/core';
 import { ConsoleContextLoggerOptions } from './ConsoleContextLoggerOptions';
 
 export class ConsoleContextLogger implements IContextLogger {
