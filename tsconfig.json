@@ -6,17 +6,27 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
-    "lib": ["ES2022"],
+    "lib": [
+      "ES2022"
+    ],
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "outDir": "./dist",
     "paths": {
-      "@mytake2/context-logger": ["src/index.ts"],
-      "@mytake2/context-logger/console": ["src/console/index.ts"],
-      "@mytake2/context-logger/core": ["src/core/index.ts"],
-      "@mytake2/context-logger/winston": ["src/winston/index.ts"]
+      "@mytake2/context-logger": [
+        "src/index.ts"
+      ],
+      "@mytake2/context-logger/console": [
+        "src/console/index.ts"
+      ],
+      "@mytake2/context-logger/core": [
+        "src/core/index.ts"
+      ],
+      "@mytake2/context-logger/winston": [
+        "src/winston/index.ts"
+      ]
     },
     "preserveConstEnums": true,
     "removeComments": true,
@@ -26,12 +36,32 @@
     "sourceMap": true,
     "strict": true,
     "target": "ES2022",
-    "typeRoots": ["./node_modules/@types"],
-    "types": ["node", "jest"]
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "types": [
+      "node",
+      "jest"
+    ],
+    "plugins": []
   },
-  "exclude": ["benchmark/", "build/", "coverage/", "dist/", "node_modules/", "outputs/", "result/"],
-  "include": ["examples/", "src/", "test/"],
+  "exclude": [
+    "benchmark/",
+    "build/",
+    "coverage/",
+    "dist/",
+    "node_modules/",
+    "outputs/",
+    "result/"
+  ],
+  "include": [
+    "examples/",
+    "src/",
+    "test/"
+  ],
   "ts-node": {
-    "require": ["tsconfig-paths/register"]
+    "require": [
+      "tsconfig-paths/register"
+    ]
   }
 }
